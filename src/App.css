@@ -205,10 +205,41 @@
   gap: 4rem;
   align-items: center;
 }
+.hero__tagline {
+  margin: 1.1rem 0 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  color: var(--green-2);
+  letter-spacing: 0.01em;
+}
+:root[data-theme='dark'] .hero__tagline {
+  color: var(--accent);
+}
 .hero h1 {
   font-size: clamp(2.6rem, 5.4vw, 4.6rem);
   line-height: 1.04;
-  margin-top: 1.4rem;
+  margin-top: 0.5rem;
+}
+.tagline {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--green-2);
+}
+.tagline--on-brand {
+  margin-top: 1.75rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+.footer__tagline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem !important;
 }
 .accent {
   font-style: italic;
@@ -603,11 +634,57 @@
 }
 
 /* ---------- Doctor ---------- */
-.doctor {
+.section__head--on-dark h2 {
+  color: #fff;
+}
+.section__head--on-dark p {
+  color: #cfd9d3;
+}
+.doctors-team {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+  justify-items: center;
+  max-width: 940px;
+  margin: 0 auto 3rem;
+  width: 100%;
+}
+.doctor-card {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+.doctor-card__body {
+  text-align: center;
+}
+.doctor-card__body > p:not(.doctor__role) {
+  color: #cfd9d3;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+}
+.doctor-panel {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.doctor-panel .btn {
+  margin-top: 0.5rem;
+}
+.doctor__traits--row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+.doctor__traits--row .trait {
+  flex-direction: column;
+  text-align: center;
+  gap: 0.75rem;
+}
+.doctor__traits--row .trait > span {
+  margin-inline: auto;
 }
 .doctor__media {
   position: relative;
@@ -1071,8 +1148,7 @@
   }
   .hero__grid,
   .about,
-  .appointment,
-  .doctor {
+  .appointment {
     gap: 3rem;
   }
   .footer__grid {
@@ -1122,7 +1198,7 @@
   }
   .hero__grid,
   .about,
-  .doctor,
+  .doctors-team,
   .appointment,
   .location {
     grid-template-columns: 1fr;
@@ -1132,11 +1208,13 @@
     max-width: 380px;
     margin-right: 1.6rem;
   }
-  .doctor {
-    gap: 4rem;
-  }
   .doctor__media {
     max-width: 340px;
+  }
+  .doctor__traits--row {
+    grid-template-columns: 1fr;
+    max-width: 20rem;
+    margin-inline: auto;
   }
   .hero__badge {
     left: -0.6rem;
