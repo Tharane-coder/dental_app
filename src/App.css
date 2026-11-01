@@ -171,10 +171,29 @@
   font-size: clamp(2rem, 4.5vw, 3.3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-top: 1rem;
+  margin-top: 0.35rem;
+}
+.hero__tagline {
+  margin: 1rem 0 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--brand);
+  letter-spacing: 0.01em;
 }
 .accent {
   color: var(--brand);
+}
+.tagline {
+  margin: 0;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--brand);
+}
+.tagline--on-brand {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 .lead {
   font-size: 1.1rem;
@@ -447,25 +466,83 @@
 }
 
 /* ---------- Doctor ---------- */
-.doctor {
+.doctors-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  justify-items: center;
+  width: 100%;
+  padding-inline: clamp(0.25rem, 2vw, 1.25rem);
+  box-sizing: border-box;
+}
+.doctor-card {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 420px;
+}
+.doctor-card__body {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+.doctor-card__body > p:not(.doctor__role) {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+.doctor-panel {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.doctor-panel .doctor__traits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  margin: 2rem 0 2rem;
+  width: 100%;
+  text-align: center;
+}
+.doctor-panel .trait {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem;
+  border-radius: var(--radius);
+  background: var(--tint, #f4fafb);
+  border: 1px solid var(--line, #e5eef0);
+}
+.doctor-panel .trait > span {
+  width: 52px;
+  height: 52px;
+  font-size: 1.35rem;
+}
+.doctor-panel .trait strong {
+  font-size: 1rem;
+}
+.doctor-panel .btn {
+  margin-top: 0.25rem;
 }
 .doctor__media {
   position: relative;
-  max-width: 440px;
   width: 100%;
-  justify-self: center;
+  max-width: 380px;
+  margin-inline: auto;
 }
 .doctor__media::before {
   content: '';
   position: absolute;
-  inset: 1.2rem -1.2rem -1.2rem 1.2rem;
+  inset: 1rem;
   border-radius: 28px;
   background: linear-gradient(135deg, var(--brand), var(--accent));
   z-index: 0;
+  transform: translate(10px, 10px);
 }
 .doctor__media img {
   position: relative;
@@ -753,7 +830,13 @@
   color: #fff;
   font-size: 1.25rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.footer__tagline {
+  color: #fff;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5rem !important;
 }
 .footer h4 {
   color: #fff;
@@ -860,13 +943,15 @@
   }
   .hero__grid,
   .about,
-  .doctor,
+  .doctors-grid,
   .appointment,
   .location {
     grid-template-columns: 1fr;
   }
-  .doctor {
-    gap: 3.5rem;
+  .doctor-panel .doctor__traits {
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+    margin-inline: auto;
   }
   .doctor__media {
     max-width: 340px;

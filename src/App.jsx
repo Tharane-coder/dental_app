@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   CLINIC,
-  DOCTOR,
+  DOCTORS,
   HOURS,
   IMAGES,
   SERVICES,
@@ -15,7 +15,7 @@ import './App.css'
 const NAV = [
   { href: '#services', label: 'Services' },
   { href: '#about', label: 'About' },
-  { href: '#doctor', label: 'Our Doctor' },
+  { href: '#doctor', label: 'Our Doctors' },
   { href: '#reviews', label: 'Reviews' },
   { href: '#location', label: 'Location' },
 ]
@@ -99,8 +99,10 @@ function Header() {
             </svg>
           </span>
           <span>
-            <strong>RD Dental Care</strong>
-            <small>Royapuram, Chennai</small>
+            <strong>{CLINIC.name}</strong>
+            <small>
+              {CLINIC.area}, Chennai
+            </small>
           </span>
         </a>
 
@@ -139,6 +141,7 @@ function Hero() {
           <span className={`pill ${isOpen ? 'pill--open' : 'pill--closed'}`}>
             <span className="dot" /> {isOpen ? 'Open now' : 'Closed now'} · Today {today.label}
           </span>
+          <p className="hero__tagline">{CLINIC.tagline}</p>
           <h1>
             Gentle, modern dental care for a <span className="accent">healthy smile</span>
           </h1>
@@ -269,25 +272,37 @@ function Doctor() {
   ]
   return (
     <section className="section" id="doctor">
-      <div className="container doctor">
-        <div className="doctor__media">
-          <img src={DOCTOR.photo} alt={`${DOCTOR.name}, ${DOCTOR.role} at RD Dental Care`} loading="lazy" />
-          <div className="doctor__tag">
-            <strong>{DOCTOR.name}</strong>
-            <span>{DOCTOR.role}</span>
-          </div>
-        </div>
-        <div className="doctor__content">
-          <span className="eyebrow">Meet Your Dentist</span>
-          <h2>{DOCTOR.name}</h2>
-          <p className="doctor__role">
-            {DOCTOR.role} · RD Dental Care, Royapuram
-          </p>
+      <div className="container">
+        <div className="section__head">
+          <span className="eyebrow">Our Team</span>
+          <h2>Meet our dental surgeons</h2>
           <p>
-            {DOCTOR.name} leads RD Dental Care with a calm, caring approach and a commitment to
-            modern, evidence-based dentistry. From routine check-ups to root canals and smile
-            makeovers, he makes sure every patient feels comfortable and well informed.
+            Experienced surgeons at RD Dental Care, Royapuram — dedicated to comfortable, modern
+            treatment for your whole family.
           </p>
+        </div>
+        <div className="doctors-grid">
+          {DOCTORS.map((doctor) => (
+            <article key={doctor.name} className="doctor-card">
+              <div className="doctor__media">
+                <img
+                  src={doctor.photo}
+                  alt={`${doctor.name}, ${doctor.role} at RD Dental Care`}
+                  loading="lazy"
+                />
+                <div className="doctor__tag">
+                  <strong>{doctor.name}</strong>
+                  <span>{doctor.role}</span>
+                </div>
+              </div>
+              <div className="doctor-card__body">
+                <p className="doctor__role">{doctor.role} · RD Dental Care</p>
+                <p>{doctor.bio}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="doctor-panel">
           <div className="doctor__traits">
             {traits.map((t) => (
               <div key={t.title} className="trait">
@@ -300,7 +315,7 @@ function Doctor() {
             ))}
           </div>
           <a href="#appointment" className="btn btn--primary">
-            Book with {DOCTOR.name}
+            Book an appointment
           </a>
         </div>
       </div>
@@ -424,6 +439,7 @@ function Appointment() {
               Mon–Sat 6:00–9:30 PM · Sun 10:00 AM–1:00 PM
             </li>
           </ul>
+          <p className="tagline tagline--on-brand">{CLINIC.tagline}</p>
         </div>
 
         <form className="card form" onSubmit={submit} noValidate>
@@ -556,7 +572,8 @@ function Footer() {
       <div className="container footer__grid">
         <div>
           <strong className="footer__brand">RD Dental Care</strong>
-          <p>Caring for smiles in Royapuram, Chennai.</p>
+          <p className="footer__tagline">{CLINIC.tagline}</p>
+          <p>Royapuram, Chennai</p>
         </div>
         <div>
           <h4>Contact</h4>

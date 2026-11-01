@@ -1,10 +1,11 @@
 export const CLINIC = {
   name: 'RD Dental Care',
+  tagline: 'Your smile is our passion',
   area: 'Royapuram',
   rating: 5.0,
   reviews: 21,
   address: '111/48, Adam Sahib St, Pudumanaikuppam, Royapuram, Chennai, Tamil Nadu 600013',
-  phoneDisplay: '080727 42170',
+  phoneDisplay: '80727 42170',
   phoneTel: '+918072742170',
   whatsapp: '919344096595',
   mapsQuery: 'RD Dental Care, 111/48, Adam Sahib St, Royapuram, Chennai 600013',
@@ -97,11 +98,20 @@ export const TESTIMONIALS = [
   },
 ]
 
-export const DOCTOR = {
-  name: 'Dr. Deepak',
-  role: 'Dental Surgeon',
-  photo: '/deepak_dr.png',
-}
+export const DOCTORS = [
+  {
+    name: 'Dr. Deepak',
+    role: 'Dental Surgeon',
+    photo: '/deepak_dr.png',
+    bio: 'Leads RD Dental Care with a calm, caring approach and modern, evidence-based dentistry — from routine check-ups to root canals and smile makeovers.',
+  },
+  {
+    name: 'Dr. Ruthra Deepak',
+    role: 'Dental Surgeon',
+    photo: '/rudhra.jpeg',
+    bio: 'Provides gentle, patient-focused surgical and restorative care with clear guidance at every step, so families feel comfortable and well informed.',
+  },
+]
 
 export const IMAGES = {
   hero: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80',
