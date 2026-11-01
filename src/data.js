@@ -26,42 +26,42 @@ export const HOURS = [
 
 export const SERVICES = [
   {
-    icon: '🦷',
+    icon: 'tooth',
     title: 'General Check-up & Cleaning',
     text: 'Thorough oral examination, scaling and polishing to keep your teeth and gums healthy.',
   },
   {
-    icon: '🩺',
+    icon: 'rct',
     title: 'Root Canal Treatment',
     text: 'Painless, single-sitting RCT with modern rotary instruments to save your natural tooth.',
   },
   {
-    icon: '✨',
+    icon: 'sparkle',
     title: 'Teeth Whitening',
     text: 'Safe, professional whitening for a brighter, more confident smile.',
   },
   {
-    icon: '👑',
+    icon: 'crown',
     title: 'Crowns & Bridges',
     text: 'Natural-looking ceramic and zirconia crowns to restore strength and appearance.',
   },
   {
-    icon: '🔩',
+    icon: 'implant',
     title: 'Dental Implants',
     text: 'Permanent, natural-feeling replacements for missing teeth.',
   },
   {
-    icon: '😁',
+    icon: 'braces',
     title: 'Braces & Aligners',
     text: 'Orthodontic solutions to straighten teeth for children and adults.',
   },
   {
-    icon: '🧒',
+    icon: 'kids',
     title: 'Kids Dentistry',
     text: 'Gentle, friendly care that makes dental visits easy for children.',
   },
   {
-    icon: '🪥',
+    icon: 'extract',
     title: 'Fillings & Extractions',
     text: 'Tooth-coloured fillings and comfortable extractions, including wisdom teeth.',
   },
@@ -112,3 +112,32 @@ export const IMAGES = {
     'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=900&q=80',
   ],
 }
+
+export const STEPS = [
+  { icon: 'calendar', title: 'Book your slot', text: 'Choose a date and time online. We confirm on WhatsApp within minutes.' },
+  { icon: 'chair', title: 'Visit & consult', text: 'Gentle examination, clear diagnosis and a transparent treatment plan.' },
+  { icon: 'smile', title: 'Smile with confidence', text: 'Comfortable treatment and simple aftercare so your smile lasts.' },
+]
+
+export const FAQS = [
+  {
+    q: 'Is the treatment painful?',
+    a: 'We use modern anaesthesia and gentle techniques so procedures like root canals and extractions are comfortable. Tell us if you feel anxious and we will go slowly.',
+  },
+  {
+    q: 'Do I need an appointment?',
+    a: 'Appointments are recommended so you do not have to wait, but we do try to accommodate emergency tooth pain walk-ins during clinic hours.',
+  },
+  {
+    q: 'What are your clinic timings?',
+    a: 'Monday to Saturday 6:00 PM – 9:30 PM and Sunday 10:00 AM – 1:00 PM, which suits working professionals and students.',
+  },
+  {
+    q: 'Do you treat children and seniors?',
+    a: 'Yes. We are a family dental clinic and see patients of all ages, from a child’s first visit to dentures and implants for seniors.',
+  },
+  {
+    q: 'How do I know the cost before treatment?',
+    a: 'After your examination we explain the options and the cost up front, so there are no surprises.',
+  },
+]

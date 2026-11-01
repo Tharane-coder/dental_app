@@ -1,23 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 :root {
-  --brand: #0e7c86;
-  --brand-dark: #0a5c64;
-  --brand-light: #e6f6f7;
-  --accent: #2bb3c0;
-  --ink: #0f2a33;
-  --muted: #5b7079;
-  --line: #e3ecee;
-  --bg: #ffffff;
-  --tint: #f4fafb;
+  color-scheme: light;
+  --bg: #fbf8f3;
+  --surface: #ffffff;
+  --surface-2: #f3eee5;
+  --ink: #14251f;
+  --muted: #5e6b64;
+  --line: #e7e0d3;
+  --green: #123d33;
+  --green-2: #1b5547;
+  --sage: #e4ede6;
+  --brand: #d8683e;
+  --brand-dark: #b9532d;
+  --accent: #e9a88b;
+  --brand-light: #fbe9e1;
+  --tint: #f3eee5;
+  --on-brand: #ffffff;
+  --glass: rgba(251, 248, 243, 0.86);
   --wa: #25d366;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(14, 60, 70, 0.08);
-  --header-h: 72px;
+  --star: #e8a317;
+  --ok-bg: #e3f3e8;
+  --ok-fg: #1b6b3a;
+  --bad-bg: #fdecec;
+  --bad-fg: #b42318;
+  --radius: 20px;
+  --radius-lg: 32px;
+  --shadow: 0 1px 2px rgba(20, 37, 31, 0.04), 0 12px 32px rgba(20, 37, 31, 0.07);
+  --shadow-lg: 0 30px 70px rgba(20, 37, 31, 0.16);
+  --header-h: 76px;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0c1613;
+  --surface: #14221d;
+  --surface-2: #1a2d26;
+  --ink: #f2eee6;
+  --muted: #a5b3ab;
+  --line: #25382f;
+  --green: #0f2a23;
+  --green-2: #163a30;
+  --sage: #1a2d26;
+  --brand: #ee8257;
+  --brand-dark: #f4a07c;
+  --accent: #f4a07c;
+  --brand-light: rgba(238, 130, 87, 0.14);
+  --tint: #101c18;
+  --on-brand: #1a0b04;
+  --glass: rgba(12, 22, 19, 0.86);
+  --ok-bg: rgba(111, 191, 154, 0.16);
+  --ok-fg: #8fdcb7;
+  --bad-bg: rgba(255, 120, 100, 0.14);
+  --bad-fg: #ff9f8f;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
 *,
@@ -33,7 +72,11 @@ html {
 
 body {
   margin: 0;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -50,10 +93,45 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.2;
+  line-height: 1.15;
   margin: 0 0 0.6em;
+}
+
+h1,
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-weight: 700;
 }
 
 p {
   margin: 0 0 1em;
+}
+
+::selection {
+  background: var(--accent);
+  color: #14251f;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
